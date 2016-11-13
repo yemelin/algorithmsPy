@@ -34,17 +34,25 @@ class LinkedList(object):
             i += 1
         return current
     
+    def __insert_after(self,new_element,previous):
+        new_element.next = previous.next
+        previous.next = new_element
+                    
         """Insert a new node at the given position.
         Assume the first position is "1".
         Inserting at position 3 means between
         the 2nd and 3rd elements."""
     def insert(self, new_element, position):
         element = self.get_position(position - 1)
-        new_element.next = element.next
-        element.next = new_element
-        pass
+        if (element and new_element):        
+            self.__insert_after(new_element,element)
     
-    
+    def __delete_after(self,previous):
+        if (previous):
+            previous.next = previous.next.next
+        else:
+            self.head = self.head.next
+        
         """Delete the first node with a given value."""
     def delete(self, value):
         if not self.head:
@@ -55,7 +63,4 @@ class LinkedList(object):
             previous = current
             current = current.next
         if (current.value == value):
-            if (previous):
-                previous.next = current.next
-            else:
-                self.head = current.next
+            self.__delete_after(previous)
