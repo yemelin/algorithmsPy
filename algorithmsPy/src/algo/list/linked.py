@@ -34,7 +34,7 @@ class LinkedList(object):
             i += 1
         return current
     
-    def __insert_after(self,new_element,previous):
+    def insert_after(self,new_element,previous):
         new_element.next = previous.next
         previous.next = new_element
                     
@@ -47,7 +47,7 @@ class LinkedList(object):
         if (element and new_element):        
             self.__insert_after(new_element,element)
     
-    def __delete_after(self,previous):
+    def delete_after(self,previous):
         if (previous):
             previous.next = previous.next.next
         else:
@@ -63,4 +63,4 @@ class LinkedList(object):
             previous = current
             current = current.next
         if (current.value == value):
-            self.__delete_after(previous)
+            self.delete_after(previous)
