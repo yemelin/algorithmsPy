@@ -8,22 +8,35 @@ from linked import LinkedList
 class LinkedReversible(LinkedList):
     
     __size = 0
-    def __init__(self,head):
-        super(LinkedReversible,self).__init__(head)
+    def __init__(self,value):
+        super(LinkedReversible,self).__init__(value)
         if self.head!=None:
             self.__size+=1
             
-    def delete_after(self, previous):
-        super(LinkedReversible,self).delete_after(previous)
+    def _delete_after(self, previous):
+        super(LinkedReversible,self)._delete_after(previous)
         self.__size-=1
     
-    def insert_after(self, new_element, previous):
-        super(LinkedReversible,self).insert_after(new_element, previous)
+    def _insert_after(self, new_element, previous):
+        super(LinkedReversible,self)._insert_after(new_element, previous)
         self.__size+=1
     
-    def append(self, new_element):
-        super(LinkedReversible,self).append(new_element)
+    def append(self, value):
+        super(LinkedReversible,self).append(value)
         self.__size+=1
         
     def size(self):
         return self.__size
+    
+    def reverse(self):
+        if (self.__size>2):
+            first = self.head
+            second = first.next
+            third = None
+            first.next = None
+            while second!=None:
+                third = second.next;
+                second.next = first;
+                first = second;
+                second = third;
+            self.head = first;
