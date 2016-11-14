@@ -31,7 +31,6 @@ class Test(unittest.TestCase):
         self.assertEqual(3, self.list.get_position(3));
 
     def testSizeAndReverse(self):
-        i=1
         '''
         while (self.list.get_position(i))!=None:
             e = self.list.get_position(i)
