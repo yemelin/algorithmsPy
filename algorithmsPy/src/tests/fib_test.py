@@ -4,7 +4,8 @@ Created on Nov 15, 2016
 @author: vvy
 '''
 import unittest
-from algo.recursion.fib import fib, dumbFibRec, recFibNoMemo, recFibMemo
+#from algo.recursion.fib import fib, dumbFibRec, recFibNoMemo, recFibMemo
+from recursion.fib import fib, dumbFibRec, recFibNoMemo, recFibMemo
 
 
 class Test(unittest.TestCase):
