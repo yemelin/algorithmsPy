@@ -15,19 +15,23 @@ class Stack():
         self.__sz+=1
 
     def pop(self):
-        ret=self.peek()
+        ret=self._peek()
         self.top = self.top.next
         self.__sz-=1
-        return ret
+        return ret.value
 
-    def peek(self):
+    def _peek(self):
         if (self.__sz==0):
             raise Exception("stack empty")
         return self.top
 
+    def peek(self):
+        return self._peek().value
+
     def empty(self):
         return self.__sz==0
 
+'''
 s = Stack()
 s.push(1)
 s.push(2)
@@ -35,3 +39,4 @@ print s.peek()
 s.pop()
 print s.pop()
 print s.pop()
+'''
