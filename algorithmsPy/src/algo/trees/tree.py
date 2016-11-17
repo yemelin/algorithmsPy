@@ -1,4 +1,4 @@
-from node import Node
+from trees.node import Node
 
 def load(dic):
     if (not dic) or len(dic)!=1 or (not dic.has_key("root")):

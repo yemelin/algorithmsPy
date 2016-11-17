@@ -47,10 +47,10 @@ class MinMaxQueue():
             self.hi = self.find(_greaterthan)
         return self.hi
 
-    def find(self, cmp):
+    def find(self, cmp_func):
         ret = None
         for item in self.items:
-            if ret==None or cmp(item, ret):
+            if ret==None or cmp_func(item, ret):
                 ret = item
         return ret
 
