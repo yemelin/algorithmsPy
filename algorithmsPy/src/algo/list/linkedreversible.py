@@ -13,8 +13,8 @@ class LinkedReversible(LinkedList):
         if self.head!=None:
             self.__size+=1
             
-    def _delete_after(self, previous):
-        super(LinkedReversible,self)._delete_after(previous)
+    def _delete_after(self, current, previous):
+        super(LinkedReversible,self)._delete_after(current, previous)
         self.__size-=1
     
     def _insert_after(self, new_element, previous):
@@ -29,7 +29,7 @@ class LinkedReversible(LinkedList):
         return self.__size
     
     def reverse(self):
-        if (self.__size>2):
+        if (self.__size>=2):
             first = self.head
             second = first.next
             third = None
