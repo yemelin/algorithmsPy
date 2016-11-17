@@ -1,6 +1,7 @@
 import unittest
 
-from queue.queue import MinMaxQueue
+from algo.queue.queue import MinMaxQueue
+from algo.queue.stacked_queue import DualStackQueue
 
 
 class MyTestCase(unittest.TestCase):
@@ -19,5 +20,16 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(q.max(), 3)
 
 
+    def test_dual_stack(self):
+        q = DualStackQueue()
+        q.enqueue(4);
+        self.assertTrue(1==q.size());
+        self.assertTrue(4==q.dequeue());
+        q.enqueue(4);
+        q.enqueue(3);
+        q.enqueue(2);
+        self.assertTrue(4==q.dequeue());
+        
+        
 if __name__ == '__main__':
     unittest.main()

@@ -1,4 +1,4 @@
-from list.linked import Element
+from algo.list.linked import Element
 
 #simple stack from scratch
 class Stack():
@@ -30,6 +30,9 @@ class Stack():
 
     def empty(self):
         return self.__sz==0
+    
+    def size(self):
+        return self.__sz;
 
 '''
 s = Stack()
