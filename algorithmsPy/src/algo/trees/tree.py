@@ -19,28 +19,42 @@ def _addTree(node, tree):
 def action(node):
     print node.value,
 
+#depth first search
 def traverseDS(tree):
     action(tree)
     if not (tree.isLeaf()):
         for child in tree.children:
             traverseDS(child)
 
-def _traverseBS(nodeList):
+#mixture, depth but the children first
+def _traverseBSDS(nodeList):
     if (nodeList!=None):
         for node in nodeList:
             action(node)
         for node in nodeList:
-            _traverseBS(node.children)
+            _traverseBSDS(node.children)
 
-def traverseBS(tree):
+def traverseBSDS(tree):
     action(tree)
-    _traverseBS(tree.children)
+    _traverseBSDS(tree.children)
+
+#breadth first
+def traverseBS(tree):
+    stack = []
+    stack.append(tree)
+    while len(stack)>0:
+        node = stack.pop()
+        action(node)
+        if (node.children):
+            stack.extend(node.children)
 
 d = {"root":{"1":{"2":None,"3":None},"4":{"5":{"6":None,"7":None}},"8":None,"9":None}}
 tree = load(d)
 print tree
 
 traverseDS(tree)
+print
+traverseBSDS(tree)
 print
 traverseBS(tree)
 print
